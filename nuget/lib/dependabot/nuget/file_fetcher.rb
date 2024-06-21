@@ -258,7 +258,7 @@ module Dependabot
         directory_path = Pathname.new(directory)
         full_project_dir = Pathname.new(project_file.directory).join(project_file.name).dirname
         
-        // Check if the expected file is in the same directory as the project file
+        # Check if the expected file is in the same directory as the project file
         candidate_file_path = Pathname.new(full_project_dir).join(expected_file_name).cleanpath.to_path
         candidate_directory = Pathname.new(File.dirname(candidate_file_path))
         relative_candidate_directory = candidate_directory.relative_path_from(directory_path)
@@ -270,7 +270,7 @@ module Dependabot
                                                                candidate_file.name))
         end
 
-        // Check if the expected file is in the child directory of the project file
+        # Check if the expected file is in the child directory of the project file
         full_project_dir.ascend.each do |base|
           break if found_expected_file
 
