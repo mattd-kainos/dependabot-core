@@ -238,12 +238,13 @@ module Dependabot
 
       sig { returns(T::Array[Dependabot::DependencyFile]) }
       def nuget_config_files
-        return @nuget_config_files if @nuget_config_files
+        return nil
+        # return @nuget_config_files if @nuget_config_files
 
-        @nuget_config_files = [*project_files.map do |f|
-                                 named_file_up_tree_from_project_file(f, "nuget.config")
-                               end].compact.uniq
-        @nuget_config_files
+        # @nuget_config_files = [*project_files.map do |f|
+        #                          named_file_up_tree_from_project_file(f, "nuget.config")
+        #                        end].compact.uniq
+        # @nuget_config_files
       end
 
       sig do
